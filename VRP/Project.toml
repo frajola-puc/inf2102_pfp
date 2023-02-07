@@ -1,4 +1,4 @@
-name = "vrp"
+name = "VRP"
 uuid = "6a881f21-a0e6-4eee-8c21-d8bd9f366823"
 authors = ["Frajola <frajola.puc@gmail.com>"]
 version = "0.1.0"

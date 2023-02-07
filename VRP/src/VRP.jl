@@ -1,4 +1,4 @@
-module vrp
+module VRP
 """
 using Dates
 using CVRP_Structures
@@ -24,17 +24,17 @@ INSTANCE_LENGTH = 0
 """
 
 # Execution Structures
-export struArgument
-mutable struct struArgument
+export rArgument
+mutable struct rArgument
 
     sInputFile::String
     fExecutionTime::Real
     iNearestK::Int64
 
-    struArgument(vAttribute...) = begin
-        local sInputFile = ""
+    rArgument(vAttribute...) = begin
+        local sInputFile     = ""
         local fExecutionTime = 0.0
-        local iNearestK = 100
+        local iNearestK      = 100
 
         isdefined(vAttribute, 1) ? sInputFile     = vAttribute[1] : nothing
         isdefined(vAttribute, 2) ? fExecutionTime = vAttribute[2] : nothing
@@ -195,41 +195,6 @@ function solve(instance::CvrpData, auxiliar::CvrpAuxiliars; solution::Controller
 end
 
 
-export displayHelp
-function displayHelp()
-
-    print("\n ################################ PBP-Loggi  2021 #################################\n")
-    print("#          --------------------------------------------------------------          #\n")
-    print("#         |            Hibrid algorithms applied to Last-Mile            |         #\n")
-    print("#         |         Dynamic Capacitated Vehicle Routing Problems         |         #\n")
-    print("#          --------------------------------------------------------------          #\n")
-    print(" ##################################################################################\n\n")
-
-    println("Execution Syntax:")
-    println("    \$ julia -O 3 main.jl -i <instance> [options]")
-    println()
-
-    println("Where:")
-    println("    [ --input  -> -i ]  |>    Required    |> Set instance used (JSON)")
-    println()
-
-    println("Options:")
-    println("    [ --help   -> -h ]  |>  Not Required  |> Display this message")
-    println("    [ --seed   -> -s ]  |>  Not Required  |> Set seed used on random selections")
-    println("    [ --k-near -> -k ]  |>  Not Required  |> Set the number of stored delivery nearest adjacents")
-    println("    [ --timer  -> -t ]  |>  Not Required  |> Set the heuristic execution time (Milliseconds)")
-    println("    [ --DEBUG        ]  |>  Not Required  |> Set debug mode (Profiling)")
-    println()
-
-    println("-------------------------------- Execution Examples ---------------------------------")
-    println()
-    println("\$ julia main.jl -s 1 -i data/input/train/df-0/cvrp-0-df-0.json")
-    println("\$ julia main.jl -i data/input/train/rj-5/cvrp-5-rj-89.json -t 9e5 --DEBUG")
-    println("\$ julia main.jl -s 1 -i data/input/train/df-0/cvrp-0-df-0.json -t 18e5 -k 50")
-    println()
-
-end
-
 #reet() = print("Hello World!")
 
-end # module vrp
+end # module VRP
