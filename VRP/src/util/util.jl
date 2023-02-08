@@ -1,9 +1,10 @@
 # Execution Structures
-export rArgument
-struct rArgument
-	iSeed::Int64
-	sInputFile::String
+#export rArgument
+
+mutable struct rArgument
+	iSeed         ::Int64
+	sInputFile    ::String
 	fExecutionTime::Real
-	iNearestK::Int64
+	iNearestK     ::Int64
 end
 

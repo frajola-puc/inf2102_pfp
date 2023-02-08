@@ -1,6 +1,8 @@
 using VRP
 
-#push!(LOAD_PATH, "src/solver")
+push!(LOAD_PATH, "src/util")
+
+include("src/util/util.jl")
 
 """
 	main(ARGS)
@@ -8,6 +10,7 @@ using VRP
 """
 
 function main(V_S_ARG...)
+	oArgument = rArgument()
 
 	println("Antes...")
 	if (length(V_S_ARG) < 3)
@@ -16,7 +19,8 @@ function main(V_S_ARG...)
 		exit()
 	end
 
-	for i = [2 : length(V_S_ARG): 2]
+	for i in 1:length(V_S_ARG):2
+		println("V_S_ARG[",i,"] = ", V_S_ARG[i])
 		local sArg_ = lowercase(V_S_ARG[i])
 
 		if (sArg_ == "-i")
