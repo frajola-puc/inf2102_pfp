@@ -15,14 +15,7 @@ function main(V_S_ARG...)
 
 		exit()
 	end
-	println("Depois...")
-	#VRP.greet()
 
-
-	println("Depois...")
-	VRP.greet()
-
-	"""
 	for i = [2 : length(V_S_ARG): 2]
 		local sArg_ = lowercase(V_S_ARG[i])
 
@@ -30,8 +23,9 @@ function main(V_S_ARG...)
 			oArgument.sInputFile = V_S_ARG[i+1]
 			if (oArgument.sInputFile === "" || match(r".+\.json", oArgument.sInputFile) === nothing)
 				throw("Unexpected file:"+oArgument.sInputFile)
+			end
 		elseif (sArg_ == "-s")
-			arguments.iSeed = parse(Int64, V_S_ARG[i+1])
+			oArgument.iSeed = parse(Int64, V_S_ARG[i+1])
 		elseif (sArg_ == "-t")
 			oArgument.fExecutionTime = parse(Int64, V_S_ARG[i+1])
 		elseif (sArg_ == "-k")
@@ -41,8 +35,12 @@ function main(V_S_ARG...)
 		end
 	end
 
-	VRP(oArgument)
-	"""	
+	#VRP(oArgument)
+
+	println("Depois...")
+
+	VRP.greet()
+
 
 end
 
